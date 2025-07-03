@@ -1,14 +1,45 @@
 <html>
+
 <head>
-    <title>Homepage</title>
+	<title>Homepage</title>
+	<link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-    <h1>หน้าแรก</h1>    
-    <!-- 1.	แสดงภาพ garden.jpg -->
+	<h1>หน้าแรก</h1>
+
+	<!-- 1.	แสดงภาพ garden.jpg -->
+	<img src="./media/images/garden.jpg" style="display:block; margin-left:auto; margin-right:auto;">
+	<br /><br /><br />
+
 	<!-- 2.	เล่นเสียงเพลงจากไฟล์ goes-without-saying.mp3 -->
+	<audio controls style="display:block; margin-left:auto; margin-right:auto;">
+		<source src="./media/audio/goes-without-saying.mp3" type="audio/mpeg">
+		Your browser does not support the audio element.
+	</audio>
+	<br /><br /><br />
+
 	<!-- 3.	สร้าง Link ไปยังหน้า t1.html *** -->
+	<a href="./content/topic/t1.html"
+		style="display:block; margin-left:auto; margin-right:auto; font-size:35px; width:fit-content;">
+		Go to t1.html
+	</a>
+	<br /><br /><br />
+
 	<!-- 4.	สร้าง Link ไปยังหน้า 5idea.pdf -->
+	<a href="./document/5 idea.pdf"
+		style="display:block; margin-left:auto; margin-right:auto; font-size:35px; width:fit-content;">
+		Go to 5 idea.pdf
+	</a>
+	<br /><br /><br />
+
 	<!-- 5.	สร้าง Link ให้ผู้ใช้ download ไฟล์ putty.zip -->
+	<a href="./download/putty.zip"
+		style="width:fit-content; display:block; margin-left:auto; margin-right:auto; font-size:35px;">
+		Download putty.zip
+	</a>
+	<br /><br /><br />
 
 </body>
+
 </html>
