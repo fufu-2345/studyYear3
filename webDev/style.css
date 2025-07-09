@@ -1,0 +1,53 @@
+body {
+    background: lightblue;
+}
+
+.nav {
+    background-color: black;
+    position: relative;
+}
+
+.white {
+    display: inline-block;
+    padding: 1vw;
+    color: white;
+    background-color: black;
+    width: 5vw;
+    text-align: center;
+    position: relative;
+    cursor: pointer;
+}
+
+.white2 {
+    position: absolute;
+    top: 100%;
+    width: 100%;
+    display: none;
+    background-color: black;
+    color: white;
+}
+
+.white:hover .white2 {
+    display: block;
+}
+
+
+.child {
+    padding: 1vw;
+    display: block;
+    width: 5vw;
+    text-align: center;
+}
+
+.child:hover {
+    background-color: white;
+    color: black;
+    cursor: pointer;
+}
+
+.iframe {
+    width: 100vw;
+    height: 100vh;
+    border: none;
+    display: block;
+}
