@@ -5,6 +5,7 @@ body {
 .nav {
     background-color: black;
     position: relative;
+    z-index: 100;
 }
 
 .white {
