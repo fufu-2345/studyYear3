@@ -3,6 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="./style.css">
     <link rel="stylesheet" href="../style.css">
 </head>
 
@@ -64,10 +65,62 @@
         <div class="white">Lab4</div>
     </div>
 
-    <div>CSS Tutorials</div>
-    <p>Free web tutorials at
-        <a href="http://www.aa.com">Goto aa.com</a>
-    </p>
+    <br />
+    <form class="bor">
+        <label class="head">แบบฟอร์มจองทำร์</label><br /><br />
+        <label class="top">ข้อมูลทั่วไป</label>
+        <div class="bor">
+            ชื่อ-สกุล:<br />
+            <input type="text" placeholder="กรอกชื่อ-สกุล" required> *<br />
+            Email:<br />
+            <input type="email" required> *<br />
+            โทรศัพท์:<br />
+            <input type="tel" value="+66" required> *<br />
+            ที่อยู่:<br />
+            <textarea></textarea><br />
+            รหัสไปรษณีย์:
+            <input type="text" class="half" pattern="\d{5}"><br />
+            รูปผู้จอง:
+            <input type="file">
+        </div><br />
+
+        <label class="top">ข้อมูลเข้าสู่ระบบ</label>
+        <div class="bor">
+            Username:<br />
+            <input type="text" pattern="[\w]{8,}"><br />
+            <i>ประกอบด้วยตัวเลข ตัวอักษร หรือ_ตั้งแต่ 8 ขึ้นไป</i>
+            <br /><br />
+            Password:<br />
+            <input type="password" pattern=".{8,}"><br />
+            <i>ประกอบด้วยอักขระอะไรก็ได้ 8 ตัวขึ้นไป</i>
+        </div><br /><br />
+
+        <label class="top">ข้อมูลทัวร์ที่ต้องการ</label>
+        <div class="bor">
+            แพ็คเก็จทัวร์ :
+            <select id="province" name="province">
+                <option value="">--select--</option>
+                <option value="1">Singapore</option>
+                <option value="2">China</option>
+                <option value="3">Lao</option>
+                <option value="4">Japan</option>
+                <option value="5">Malaysia</option>
+            </select><br />
+            วันที่เดินทาง :
+            <input type="date"><br />
+            จำนวนผู้เดินทาง :
+            <input type="number" min="1" max="10"><br />
+            เน้นการท่องเที่ยวแบบใด?<br />
+            <input type="checkbox" name="want" value="1">ชอปปิ้ง<br />
+            <input type="checkbox" name="want" value="2">ธรรมชาติ<br />
+            <input type="checkbox" name="want" value="3">ทะเล
+        </div><br />
+        ยอมรับเงื่อนไขและข้อตกลง
+        <input type="radio" name="agree" value="tru" required checked>I agree
+        <input type="radio" name="agree" value="fal" required>I disagree
+        &nbsp;&nbsp;&nbsp;<input type="submit" value="จอง">
+    </form>
+    <br />
 </body>
 
 </html>
