@@ -1,65 +1,123 @@
 import math
 
-def factorial(n: int) -> int:
+def factorial(n):
     if n < 0:
-        raise ValueError("n ต้องไม่เป็นค่าลบ")
+        return "ERROR"
     result = 1
     for i in range(1, n + 1):
         result *= i
     return result
 
-def fibonacci(n: int) -> int:
+def fibonacci(n):
     if n < 0:
-        raise ValueError("n ต้องไม่เป็นค่าลบ")
+        return "ERROR"
     a, b = 0, 1
     for _ in range(n):
         a, b = b, a + b
     return a
 
-def is_prime(num: int) -> bool:
-    if num < 2:
+def is_prime(n):
+    if n < 2:
         return False
-    for i in range(2, int(math.sqrt(num)) + 1):
-        if num % i == 0:
+    for i in range(2, int(math.sqrt(n)) + 1):
+        if n % i == 0:
             return False
     return True
 
 def mean(values: list) -> float:
     if len(values) == 0:
-        raise ValueError("list ต้องไม่ว่าง")
+        return "ERROR"
     return sum(values) / len(values)
 
-def median(values: list) -> float:
-    if len(values) == 0:
-        raise ValueError("list ต้องไม่ว่าง")
-    values_sorted = sorted(values)
+def median(arr):
+    if len(arr) == 0:
+        return "ERROR"
+    values_sorted = sorted(arr)
     n = len(values_sorted)
     mid = n // 2
     if n % 2 == 0:
         return (values_sorted[mid - 1] + values_sorted[mid]) / 2
     return values_sorted[mid]
 
-def std_dev(values: list) -> float:
-    if len(values) == 0:
-        raise ValueError("list ต้องไม่ว่าง")
-    m = mean(values)
-    variance = sum((x - m) ** 2 for x in values) / len(values)
+def std_dev(arr):
+    if len(arr) == 0:
+        return "ERROR"
+    m = mean(arr)
+    variance = sum((x - m) ** 2 for x in arr) / len(arr)
     return math.sqrt(variance)
 
-def permutation(n: int, r: int) -> int:
+def permutation(n,r):
     if r > n or n < 0 or r < 0:
-        raise ValueError("ค่าไม่ถูกต้อง")
+        return "ERROR"
     return factorial(n) // factorial(n - r)
 
-def combination(n: int, r: int) -> int:
-    if r > n or n < 0 or r < 0:
-        raise ValueError("ค่าไม่ถูกต้อง")
-    return factorial(n) // (factorial(r) * factorial(n - r))
+def plusAll(x,y,z):
+    return x+y+z
 
-def circle_area(radius: float) -> float:
-    if radius < 0:
-        raise ValueError("รัศมีต้องไม่ติดลบ")
-    return math.pi * radius ** 2
+def minusAll(x,y,z):
+    return x-y-z
 
-def distance_2d(x1: float, y1: float, x2: float, y2: float) -> float:
-    return math.sqrt((x2 - x1) ** 2 + (y2 - y1) ** 2)
+def mulAll(x,y,z):
+    return x*y*z
+
+def divAll(x,y,z):
+    return x/y/z
+
+def circle_area(r):
+    if r < 0:
+        return "ERROR"
+    return math.pi * r ** 2
+
+def square_area(x,y):
+    if x < 0 | y < 0:
+        return "ERROR"
+    return x*y
+
+def tri_area(x,y):
+    if x < 0 | y < 0:
+        return "ERROR"
+    return 0.5*x*y
+
+def percentOf(x,y):
+    if x < 0 | y < 0:
+        return "ERROR"
+    return x*y/100
+
+def percentOf(x,y):
+    if x < 0 | y < 0:
+        return "ERROR"
+    return x*y/100
+
+def celsius_to_fahrenheit(c):
+    return (c * 9/5) + 32
+
+def celsius_to_kevin(c):
+    return c+273
+
+def celsius_to_reaumur(c):
+    return c*0.8
+
+def kevin_to_fahrenheit(k):
+    return (k - 273.15) * 9/5 + 32
+
+def is_palindrome(n):
+    n_str = str(n)
+    return n_str == n_str[::-1]
+
+def is_palindrome(n):
+    n_str = str(n)
+    return n_str == n_str[::-1]
+
+def decimal_to_binary(n):
+    if n == 0:
+        return "0"
+    binary = ""
+    while n > 0:
+        binary = str(n % 2) + binary
+        n = n // 2
+    return binary
+
+def hours_to_min(h):
+    if h < 0:
+        return "ERROR"
+    return h*60
