@@ -1,0 +1,54 @@
+<html>
+  <head>
+    <script>
+      function focusA() {
+        let a = document.getElementById("text1");
+        a.style.color = "black";
+      }
+      function focusB() {
+        let b = document.getElementById("text2");
+        b.style.color = "black";
+      }
+      function focusC() {
+        let c = document.getElementById("text3");
+        c.style.color = "black";
+      }
+
+      function blurr() {
+        let a = document.getElementById("text1");
+        let b = document.getElementById("text2");
+        let c = document.getElementById("text3");
+
+        a.style.color = "green";
+        b.style.color = "green";
+        c.style.color = "green";
+      }
+    </script>
+  </head>
+  <body>
+    <label
+      >Name:
+      <input
+        type="text"
+        id="text1"
+        onfocus="focusA()"
+        onblur="blurr()" /></label
+    ><br />
+    <label
+      >Age:
+      <input
+        type="text"
+        id="text2"
+        onfocus="focusB()"
+        onblur="blurr()" /></label
+    ><br />
+    <label
+      >Birthdate:
+      <input
+        type="text"
+        id="text3"
+        onfocus="focusC()"
+        onblur="blurr()" /></label
+    ><br />
+  </body>
+</html>

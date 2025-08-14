@@ -1,0 +1,27 @@
+<html>
+  <head>
+    <script>
+      onload = function () {
+        let select = document.getElementById("selectNumber");
+        let options = ["Choose a number", "1", "2", "3", "4", "5"];
+
+        // Optional: Clear all existing options first:
+        select.innerHTML = "";
+        // Populate list with options:
+        for (let i = 0; i < options.length; i++) {
+          let opt = options[i];
+          select.innerHTML +=
+            '<option value="' + opt + '">' + opt + "</option>";
+          console.log(select);
+        }
+      };
+    </script>
+  </head>
+  <body>
+    <form id="myForm">
+      <select id="selectNumber">
+        <option>Choose a number</option>
+      </select>
+    </form>
+  </body>
+</html>

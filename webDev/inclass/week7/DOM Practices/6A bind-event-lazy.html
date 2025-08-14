@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>6A Bind event example</title>
+  <style type="text/css">
+    label { display: block; }
+    .feedback { font-style: italic; color: red; } 
+  </style>
+</head>
+
+<body>
+
+  <form action="bind-event-lazy.html" onsubmit="return (validateInfo())">
+    <label>Username: </label> 
+    <input type="text" id="username" autofocus required onblur="checkUsername()" />
+    <div id="user-msg" class="feedback"></div> 
+    <br/>
+    <label>Password: </label> 
+    <input type="password" id="pwd" required />
+    <div id="pwd-msg" class="feedback"></div> 
+    <br/>
+    <input type="submit"value="Sign in" />    <!-- use input type="submit" with the required attribute -->
+  </form>
+
+
+<script>
+
+   function checkUsername() {
+      var msg = document.getElementById("user-msg");
+      var user = document.getElementById("username");
+      if (user.value.length < 8 && user.value.length > 0)
+         msg.textContent = "Username is too short";
+      else
+         msg.textContent = "";
+   }
+
+  /*  function validateInfo() {
+      var user = document.getElementById("username").value;
+      var pwd = document.getElementById("pwd").value;       
+      if (user.length <= 8)
+      {    	  
+          document.getElementById("user-msg").innerHTML = "Username is too short";
+          document.getElementById("username").focus();
+         return false;
+      }
+      return true;
+    } 
+  */
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8" />
+    <title>JavaScript Demo 46</title>
+    <style>
+      h1 { text-align: center; }
+      div {
+        display: flex;
+        padding: 0.5em;
+        border: 1px solid black;
+        justify-content: center;
+        align-items:center;
+        text-align: center;
+      }
+      .box {
+        width: 100px;
+        height: 100px;
+        margin: 10px;
+      }
+      .wrapper {
+        margin: auto;
+        flex-wrap: wrap;
+        max-width: max-content;
+      }
+      p {
+        margin: 1em;
+        text-align: center;
+      }
+      #red {
+        color: white;
+        background-color: red;
+      }
+      #grn {
+        color: white;
+        background-color: green;
+      }
+      #blu {
+        color: white;
+        background-color: blue;
+      }
+      #mov {
+        color: black;
+        background-color: yellow;
+      }
+      #mnu {
+        color: white;
+        background-color: orange;
+      }
+    </style>
+  </head>
+
+  <body>
+
+    <h1>Mouse Events</h1>
+
+    <div class="wrapper">
+      <div class="box" id="clk">
+        <h3>Click or double-click me!</h3>
+      </div>
+      <div class="box" id="red">
+        <h3>Move the mouse over me . . .</h3>
+      </div>
+      <div class="box" id="grn">
+        <h3>Enter me with the mouse . . .</h3>
+      </div>
+      <div class="box" id="blu">
+        <h3>Is my mouse depressed?</h3>
+      </div>
+      <div class="box" id="mov">
+        <h3>Let's move it!</h3>
+      </div>
+      <div class="box" id="mnu">
+        <h3>Right click me . . .<h3>
+      </div>
+    </div>
+    <p id="msg"></p>
+
+    <script>
+      const msg = document.querySelector("#msg");
+      const clk = document.querySelector("#clk");
+      const red = document.querySelector("#red");
+      const grn = document.querySelector("#grn");
+      const blu = document.querySelector("#blu");
+      const mov = document.querySelector("#mov");
+      const mnu = document.querySelector("#mnu");
+
+      clk.addEventListener("click", mouseEvt);
+      clk.addEventListener("dblclick", mouseEvt);
+      red.addEventListener("mouseover", mouseEvt);
+      red.addEventListener("mouseout", mouseEvt);
+      grn.addEventListener("mouseenter", mouseEvt);
+      grn.addEventListener("mouseleave", mouseEvt);
+      blu.addEventListener("mousedown", mouseEvt);
+      blu.addEventListener("mouseup", mouseEvt);
+      mov.addEventListener("mousemove", mouseEvt);
+      mnu.addEventListener("contextmenu", mouseEvt);
+
+      let x, y;
+
+      function mouseEvt() {
+        msg.innerHTML = "";
+        switch(event.type) {
+          case "click":
+            msg.innerHTML = "Ouch . . . you clicked me!";
+            break;
+          case "dblclick":
+            msg.innerHTML = "Ouch, ouch . . . you double clicked me!";
+            break;
+          case "mouseover":
+            msg.innerHTML = "Welcome to Red Square!";
+            break;
+          case "mouseout":
+            msg.innerHTML = "You have left Red Square!";
+            break;
+          case "mouseenter":
+            msg.innerHTML = "You are in the Green Zone!";
+            break;
+        case "mouseleave":
+            msg.innerHTML = "You have left the Green Zone!";
+            break;
+          case "mousedown":
+            msg.innerHTML = "Feeling blue at the moment, yes!";
+            break;
+          case "mouseup":
+            msg.innerHTML = "No longer feeling depressed!";
+            break;
+          case "mousemove":
+            x = event.screenX;
+            y = event.screenY;
+            msg.innerHTML += "Screen coordinates: x=" + x + ", y=" + y
+            break;
+          case "contextmenu":
+            msg.innerHTML = "A context menu . . . no surprises there!";
+            break;
+          default:
+            break;
+        }
+      }
+
+    </script>
+
+  </body>
+</html>
