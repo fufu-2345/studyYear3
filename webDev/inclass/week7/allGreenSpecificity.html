@@ -1,18 +1,21 @@
 <html>
-<head>
-<meta http-equiv="content-type" content="text/html; charset=UTF-8">
-<style>
-    /* div > span  {color: green;}         /* 0-0-2 selector #1 */
-    /* div.main > span {color: green;}     /* 0-1-2 selector #1 */
-    div.main > span:nth-child(n) {  color: green;  } /* 0-2-2 selector #1*/
-    .main > .alert { color: crimson; }       /* selector #2 */
-</style>
-    
-</head>
-<body>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <style>
+      /* div > span  {color: green;}         /* 0-0-2 selector #1 */
+      /* div.main > span {color: green;}     /* 0-1-2 selector #1 */
+      div.main > span:nth-child(n) div:hover {
+        color: green;
+      } /* 0-2-2 selector #1*/
+      .main > .alert {
+        color: crimson;
+      } /* selector #2 */
+    </style>
+  </head>
+  <body>
     <div class="main">
-        <span>Some text in span in "main" div</span> <br>
-        <span class="alert">Some text in "alert" span in "main" div</span>
-    </div> 
-
-</body></html>
+      <span>Some text in span in "main" div</span> <br />
+      <span class="alert">Some text in "alert" span in "main" div</span>
+    </div>
+  </body>
+</html>
