@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ตัวอย่างที่ 17</title>
+    <style>
+      #validationForm div {
+        margin: 10px 0;
+      }
+      #validationForm label {
+        display: inline-block;
+        width: 120px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="example17">
+      <h3>17. ฟอร์มตรวจสอบความถูกต้อง</h3>
+      <form id="validationForm" onsubmit="validateForm(event)">
+        <div>
+          <label for="email">อีเมล:</label>
+          <input type="email" id="email" required />
+        </div>
+        <div>
+          <label for="password">รหัสผ่าน:</label>
+          <input type="password" id="password" required />
+        </div>
+        <div>
+          <label for="confirmPassword">ยืนยันรหัสผ่าน:</label>
+          <input type="password" id="confirmPassword" required />
+        </div>
+        <button type="submit">ส่งข้อมูล</button>
+        <p id="formError" style="color: red"></p>
+      </form>
+      <script>
+        // ฟังก์ชันตรวจสอบความถูกต้องของฟอร์ม
+        function validateForm(event) {
+          event.preventDefault();
+          // รับค่าจากฟอร์ม
+          const email = document.getElementById("email").value;
+          const password = document.getElementById("password").value;
+          const confirmPassword =
+            document.getElementById("confirmPassword").value;
+          const errorElement = document.getElementById("formError");
+          // ตรวจสอบรหัสผ่านตรงกัน
+          if (password !== confirmPassword) {
+            errorElement.textContent = "รหัสผ่านไม่ตรงกัน";
+            return false;
+          }
+          // ตรวจสอบความยาวรหัสผ่าน
+          if (password.length < 6) {
+            errorElement.textContent = "โปรดใส่ >= 6";
+            return false;
+          } else {
+            // ถ้าผ่านการตรวจสอบ
+            errorElement.textContent = "ส่งข้อมูลสําเร็จ!";
+            errorElement.style.color = Green;
+          }
+        }
+      </script>
+    </div>
+  </body>
+</html>
