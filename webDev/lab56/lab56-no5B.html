@@ -6,30 +6,47 @@
       "use strict";
       (function () {
         function p1(nC) {
-          let co = document.forms[0].combo1;
-          while (co.options.length) co.options[0] = null;
-          for (let i = 0; i < nC.length; i++)
-            co.options[co.length] = new Option(nC[i], nC[i]);
+          const col = document.forms[0].select;
+          while (col.options.length) col.options[0] = null;
+          for (let i = 0; i < nC.length; i++) {
+            col.options[col.length] = new Option(nC[i], nC[i]);
+          }
         }
 
-        window.addEventListener("load", init);
+        function intitial() {
+          const cars = ["Audi", "BMW", "Ford", "Opel", "Toyota"];
+          const days = ["Monday", "Wednesday", "Friday"];
+          const jobs = ["engineer", "salesman"];
+          const body = document.body;
+          const form = document.createElement("form");
 
-        function init() {
-          let cars = new Array("Audi", "BMW", "Ford", "Opel", "Toyota");
-          let days = new Array("Monday", "Wednesday", "Friday");
-          let jobs = new Array("engineer ", "salesman");
+          form.innerHTML +=
+            '<label><input type="radio" name="r" value="r1"> Cars</label>' +
+            '<label><input type="radio" name="r" value="r2"> Days</label>' +
+            '<label><input type="radio" name="r" value="r3"> Jobs</label>' +
+            "<hr>";
 
-          document.write(
-            "<form>" +
-              '<input type="radio" name="r" value="r1" onClick="p1(cars)"><lable>cars</lable>' +
-              '<input type="radio" name="r" value="r2" onClick="p1(days)"><lable>days</lable>' +
-              '<input type="radio" name="r" value="r3" onClick="p1(jobs)"><lable>jobs</lable>' +
-              '<hr><select size="1" name="combo1" style="width:150px">' +
-              '<option value="">choose radio</option>' +
-              "</select>" +
-              "</form>"
-          );
+          const select = document.createElement("select");
+          select.name = "select";
+          select.innerHTML = '<option value="">choose radio</option>';
+          form.appendChild(select);
+          body.appendChild(form);
+
+          const radio = form.elements["r"];
+          for (let i = 0; i < radio.length; i++) {
+            radio[i].addEventListener("click", function () {
+              if (this.value === "r1") {
+                p1(cars);
+              } else if (this.value === "r2") {
+                p1(days);
+              } else if (this.value === "r3") {
+                p1(jobs);
+              }
+            });
+          }
         }
+
+        window.addEventListener("load", intitial);
       })();
     </script>
   </body>
