@@ -116,6 +116,7 @@
             "Use major name, not major number.";
         } else if (major.value.length <= 0) {
           number_error++;
+          document.getElementById("msg_major").innerHTML = "Missing major.";
         } else document.getElementById("msg_major").innerHTML = "";
 
         var sid = document.getElementById("sid");
