@@ -1,0 +1,13 @@
+train: ../train/images
+val: ../valid/images
+test: ../test/images
+
+nc: 3
+names: ['date-hazernut-fig', 'fig', 'hazernut']
+
+roboflow:
+  workspace: luepol
+  project: fruits-vus9m
+  version: 1
+  license: CC BY 4.0
+  url: https://universe.roboflow.com/luepol/fruits-vus9m/dataset/1

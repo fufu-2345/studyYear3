@@ -1,0 +1,6 @@
+train: C:\\Users\\luepo\\OneDrive\\Desktop\\CV_workshop\\17\\custom_dataset\\fruit_dataset\\train\\images
+val:  C:\\Users\\luepo\\OneDrive\\Desktop\\CV_workshop\\17\\custom_dataset\\fruit_dataset\\valid\\images
+test:  C:\\Users\\luepo\\OneDrive\\Desktop\\CV_workshop\\17\\custom_dataset\\fruit_dataset\\test\\images
+
+nc: 3
+names: ['date', 'fig', 'hazernut']
