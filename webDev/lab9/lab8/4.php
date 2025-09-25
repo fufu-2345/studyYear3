@@ -23,7 +23,7 @@
             <div style="padding: 15px; text-align: center">
                 <img src='./member_photo/<?=$row["username"]?>.jpg' width='100'><br>
                 <?=$row ["username"]?><br><?=$row ["name"]?><br><?=$row ["email"]?>
-            </div>
+            </div> 
         <?php endwhile; ?>
     </div>
 </body></html>
