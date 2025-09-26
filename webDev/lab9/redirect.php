@@ -4,11 +4,6 @@
     <meta charset="utf-8">
   </head>
   <body>
-    <form action="detail.php" method="get">
-        <input type="text" name="username" placeholder="Search keyword">
-        <input type="submit" value="search">
-    </form>
-    
     <div style="display:flex">
         <?php
             $stmt = $pdo->prepare("SELECT * FROM member");
