@@ -5,6 +5,7 @@
     Password: <input type="password" name="password"><br>
     <input type="submit" value="Login">
 </form><br/><br/>
-สมมุติให้ somsak เป็น admin
+สมมุติให้ somsak เป็น admin<br/>
+<img src='member.png' width='750'></a>
 </body>
 </html>

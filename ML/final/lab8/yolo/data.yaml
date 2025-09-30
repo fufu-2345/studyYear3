@@ -1,0 +1,13 @@
+train: ../train/images
+val: ../valid/images
+test: ../test/images
+
+nc: 2
+names: ['Unmasked', 'masked']
+
+roboflow:
+  workspace: mask-5uvy1
+  project: new-mask-9vk80
+  version: 1
+  license: CC BY 4.0
+  url: https://universe.roboflow.com/mask-5uvy1/new-mask-9vk80/dataset/1
