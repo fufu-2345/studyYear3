@@ -1,0 +1,44 @@
+.flexible {
+    display: flex;
+
+}
+
+.content {
+    background-color: lightgrey;
+    padding: 40px;
+    font-weight: bold;
+}
+
+.wrap {
+    background-color: rgb(1, 1, 164);
+    width: fit-content;
+    padding: 20px;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+}
+
+.botton {
+    color: white;
+}
+
+.botton::before {
+    content: "\f217";
+    font-family: "Font Awesome 6 Free";
+}
+
+@media(max-width: 800px) {
+    .flexible {
+        display: block;
+    }
+
+    .product {
+        display: flex;
+        justify-content: center;
+    }
+
+    .wrap {
+        width: 95%;
+    }
+}

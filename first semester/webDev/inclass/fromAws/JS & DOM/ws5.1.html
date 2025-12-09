@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html><head>
+	<meta charset="UTF-8">
+	<script>
+		let d = new Date();
+		console.log('วันนี้ '+d.getDate()+'/'+(parseInt(d.getMonth())+1)+'/'+(parseInt(d.getFullYear())+543));
+		//console.log('เวลา '+d.getHours()+'.'+d.getMinutes()+' น.' ); // 5 not 05
+		let ntime = d.toLocaleTimeString().split(':'); //7:05:28 AM 
+        console.log('เวลา '+ntime[0]+'.'+ntime[1]+' น.');
+		//console.log(d.toLocaleString());
+	</script>
+</head>
+	
+
+</html>

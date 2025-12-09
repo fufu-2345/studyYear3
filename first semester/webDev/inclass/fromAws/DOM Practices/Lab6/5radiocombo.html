@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+<script>
+	let cars = new Array('Audi','BMW','Ford','Opel','Toyota');
+	let days = new Array('Monday', 'Wednesday','Friday');
+	let jobs = new Array('engineer ','salesman');
+
+	function p1(nC) {
+		while (co.options.length) 
+			co.options[0] = null;
+		for (let i = 0; i < nC.length; i++)
+			co.options[co.length] = new Option(nC[i], nC[i]);
+	}
+
+	document.write( '<form>'
+	+'<input type="radio" name="r" value="r1" onClick="p1(cars)"><lable>cars</lable>'
+	+'<input type="radio" name="r" value="r2" onClick="p1(days)"><lable>days</lable>'
+	+'<input type="radio" name="r" value="r3" onClick="p1(jobs)"><lable>jobs</lable>'
+	+'<hr><select size="1" name="combo1" style="width:150px">'
+	+'<option value="">choose radio</option>'
+	+'</select>'+'</form>');
+
+	let co = document.forms[0].combo1;
+	
+</script>
+</body>
+</html>

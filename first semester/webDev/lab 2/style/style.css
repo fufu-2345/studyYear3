@@ -1,0 +1,36 @@
+.yellow-bg {
+    background-color: yellow;
+}
+
+.gray-bg {
+    background-color: gray;
+}
+
+#year {
+    color: red;
+    font-style: italic;
+}
+
+/*
+//////////////////////////////////////////////////////
+//////////////////////////////////////////////////////
+//////////////////////////////////////////////////////
+*/
+.table {
+    background: white;
+    margin: auto;
+    position: relative;
+    top: 40vh;
+    border: black 1px solid;
+}
+
+.inside {
+    background: white;
+    text-align: center;
+    border: black 1px solid;
+    padding: 10px;
+}
+
+.inside:hover {
+    background: lightblue;
+}
