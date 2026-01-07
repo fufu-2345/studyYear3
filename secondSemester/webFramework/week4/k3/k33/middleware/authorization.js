@@ -3,7 +3,6 @@ function authorizeRoles(...requiredRoles) {
     if (!req.user) {
       return res.status(401).send("Not logged in.");
     }
-
     const { role } = req.user;
 
     if (!requiredRoles.includes(role)) {

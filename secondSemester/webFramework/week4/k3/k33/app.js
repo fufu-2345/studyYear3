@@ -2,8 +2,8 @@ const express = require("express");
 const session = require("express-session");
 const bodyParser = require("body-parser");
 const jwt = require("jsonwebtoken");
-const authenticateToken = require("./middleware/jwttoken");
-const authorizeRoles = require("./middleware/authorization");
+const { authenticateToken } = require("./middleware/jwttoken");
+const { authorizeRoles } = require("./middleware/authorization");
 
 const app = express();
 
@@ -32,9 +32,14 @@ app.get("/dashboard", (req, res) => {
 });
 
 app.post("/login", (req, res) => {
-  const { username1, password1 } = req.body;
-  if (username1 === users.username && password1 === users.password) {
-    const token = jwt.sign({ id: users.id }, "SECRET_KEY", { expiresIn: "1h" });
+  const { username, password } = req.body;
+  const userr = users.find(
+    (u) => u.username === username && u.password === password
+  );
+  if (userr) {
+    const token = jwt.sign({ id: userr.id }, "SECRET_KEY", {
+      expiresIn: "1h",
+    });
     res.json({ token });
   } else {
     res.status(401).send("Invalid credentials.");
@@ -46,9 +51,9 @@ app.get(
   authenticateToken,
   authorizeRoles("staff", "admin", "student"),
   (req, res) => {
-    if (req.session.user) {
+    if (req.user) {
       res.send(
-        `ยินดีต้อนรับ ${req.session.user.username} คุณมีบทบาทคือ ${req.session.user.role}`
+        `ยินดีต้อนรับ ${req.user.username} คุณมีบทบาทคือ ${req.user.role}`
       );
     } else {
       res.status(401).send("Please log in.");
@@ -61,9 +66,9 @@ app.get(
   authenticateToken,
   authorizeRoles("staff", "admin"),
   (req, res) => {
-    if (req.session.user) {
+    if (req.user) {
       res.send(
-        `ยินดีต้อนรับ ${req.session.user.username} คุณมีบทบาทคือ ${req.session.user.role}`
+        `ยินดีต้อนรับ ${req.user.username} คุณมีบทบาทคือ ${req.user.role}`
       );
     } else {
       res.status(401).send("Please log in.");
@@ -72,9 +77,9 @@ app.get(
 );
 
 app.get("/admin", authenticateToken, authorizeRoles("admin"), (req, res) => {
-  if (req.session.user) {
+  if (req.user) {
     res.send(
-      `ยินดีต้อนรับ ${req.session.user.username} คุณมีบทบาทคือ ${req.session.user.role}`
+      `ยินดีต้อนรับ ${req.user.username} คุณมีบทบาทคือ ${req.user.role}`
     );
   } else {
     res.status(401).send("Please log in.");
@@ -86,9 +91,9 @@ app.get(
   authenticateToken,
   authorizeRoles("student"),
   (req, res) => {
-    if (req.session.user) {
+    if (req.user) {
       res.send(
-        `ยินดีต้อนรับ ${req.session.user.username} คุณมีบทบาทคือ ${req.session.user.role}`
+        `ยินดีต้อนรับ ${req.user.username} คุณมีบทบาทคือ ${req.user.role}`
       );
     } else {
       res.status(401).send("Please log in.");
