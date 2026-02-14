@@ -8,15 +8,15 @@ class Post(models.Model):
         return self.title
     
 class Publisher(models.Model):
-    Publisher = models.CharField()
+    Publisher = models.CharField(max_length=200)
     Business_info = models.TextField(null=True)
-    address = models.CharField()
+    address = models.CharField(max_length=200)
     phone = models.TextField()
     def __str__(self):
         return self.Publisher
     
 class Author(models.Model):
-    pen_name = models.CharField(unique=True)
+    pen_name = models.CharField(max_length=200, unique=True)
     bio = models.TextField(null=True)
     photo = models.ImageField(null=True)
     email = models.EmailField(null=True)
@@ -31,8 +31,13 @@ class ebook(models.Model):
     cover_image = models.ImageField(null=True)
     price = models.DecimalField(default=0.00, max_digits=6, decimal_places=2)
     publisher_date = models.DateField(auto_now_add=True, null=True)
-    status = models.CharField(default='no')
+    status = models.CharField(max_length=200, default='no')
     page_count = models.IntegerField(null=True)
     authors = models.ForeignKey(Author, on_delete=models.CASCADE, null=True)
     def __str__(self):
         return self.title
+    
+    @classmethod
+    def getName(cls, name):
+        books = cls.objects.filter(authors__pen_name=name)
+        return [b.title for b in books]

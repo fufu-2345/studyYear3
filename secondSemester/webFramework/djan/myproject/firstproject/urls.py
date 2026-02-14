@@ -19,6 +19,10 @@ from django.urls import path
 from blog import views
 
 urlpatterns = [
+    path('', views.index, name='index'),
     path('admin/', admin.site.urls),
-    path('blog/', views.index, name='index'),
+    path('blog/', views.blog, name='blog'),
+    path('authors/', views.authorPage, name='author'),
+    path('publishers/', views.publisherPage, name='publisher'),
+    path('ebooks/', views.EbookPage.as_view(), name='ebook_list'),
 ]
